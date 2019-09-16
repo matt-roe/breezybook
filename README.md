@@ -1,4 +1,4 @@
-# breezybook
+# Breezy Book
 Breezy Book booking engine
 
 The Breezy Book booking engine is 2 part. Frontend in static html and javascript, and backend in google app script.
@@ -7,7 +7,7 @@ A free and open source booking engine. Run on free google app script servers, th
 
 Before setting up this booking engine for profit please consider joining our colony.io group and contribute to a better product and community support.
 
-Front End
+# Front End
 
 Step 1
 
@@ -24,7 +24,7 @@ Step 3
 Done. Just kidding...
 
 
-Back End
+# Back End
 
 Step 1
 
@@ -52,7 +52,7 @@ Back on the spreedsheet,refresh, click Auto trigger > Run
 
 
 
-Connect
+# Connect
 
 Step 1
 
