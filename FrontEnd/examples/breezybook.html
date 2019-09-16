@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Smart Wizard - a JavaScript jQuery Step Wizard plugin</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Argon CSS -->
+    <link type="text/css" href="../assets/css/argon.css?v=1.0.1" rel="stylesheet">
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Include SmartWizard CSS -->
+    <link href="../node_modules/smartwizard/dist/css/smart_wizard.css" rel="stylesheet" type="text/css" />
+
+    <!-- Optional SmartWizard theme -->
+    <link href="../node_modules/smartwizard/dist/css/smart_wizard_theme_circles.css" rel="stylesheet" type="text/css" />
+    <link href="../node_modules/smartwizard/dist/css/smart_wizard_theme_arrows.css" rel="stylesheet" type="text/css" />
+    <link href="../node_modules/smartwizard/dist/css/smart_wizard_theme_dots.css" rel="stylesheet" type="text/css" />
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="../node_modules/moment/min/moment.min.js"></script>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <br />
+        <form id="myForm" data-toggle="validator" method="POST">
+          <input type="hidden" Name="Room" id="roomBooked" value"" />
+          <input type="hidden" Name="Payment" id="paymentDue" value="" />
+          <input type="hidden" Name="Pay Date" id="payDate" value="" />
+          <input type="hidden" Name="Nights" id="numNights" value="" />
+          <input type="hidden" Name="Checkin" id="checkinDateSet" value="" />
+          <input type="hidden" Name="Checkout" id="checkoutDateSet" value="" />
+          <input type="hidden" Name="Title" id="title" value="" />
+          <input type="hidden" Name="Email" id="email" value="" />
+
+        <!-- SmartWizard html -->
+        <div id="smartwizard">
+            <ul>
+                <li><a href="#step-1">Step 1<br /><small>Room(s)</small></a></li>
+                <li><a href="#step-2">Step 2<br /><small>Date(s)</small></a></li>
+                <li><a href="#step-3">Step 3<br /><small>Terms</small></a></li>
+                <li><a href="#step-4">Step 4<br /><small>Pay</small></a></li>
+            </ul>
+
+            <div>
+                <div id="step-1">
+                    <div id="form-step-0" role="form" data-toggle="validator">
+                      <div style="text-align: center; height: 300px;"><br><br>
+                    <div class="form-group">
+                    <div class="row">
+                        <div class="col" style="text-align: center;">
+                          <span><br><br><div>
+                            <div class="custom-control custom-checkbox mb-3">
+                              <input class="custom-control-input" type="checkbox" id="officeCheck" class="addon" value="50">
+                              <label style="padding-left: 40px;font-size: 120%;" class="custom-control-label" for="officeCheck">Office - $50/night</label>
+                            </div>
+                          </div><br></span>
+                        </div>
+                        <div class="col" style="text-align: center;">
+                          <span><br><br><div>
+                            <div class="custom-control custom-checkbox mb-3">
+                              <input class="custom-control-input" type="checkbox" id="barCheck" class="addon" value="90">
+                              <label style="padding-left: 40px;font-size: 120%;" class="custom-control-label" for="barCheck">Bar - $90/night</label>
+                            </div>
+                          </div><br></span>
+                        </div>
+                        <input type="hidden" id="total" class="total" value="" readonly required />
+                    <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col" style="text-align: center;"><h4>Select a room and click next.</h4><br><h5>Room details are on the room page (see top menu).</h5></div>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+                <div id="step-2">
+                  <div id="form-step-1" role="form" data-toggle="validator">
+                    <div style="text-align: center;height: 300px;" id="pickers" class="container">
+                        <div class="form-group">
+                            <div class="input-daterange datepicker row align-items-center">
+                                <div class="input-group input-group-alternative">
+                                    <input class="form-control" placeholder="Check-in" id="checkin" type="text" data-error="Please pick a checkin date." required style="text-align: center;">
+                                      <br>
+                                      <div class="input-group-addon" style="background-color:grey">&nbsp;&nbsp;</div>
+                                      <br>
+                                    <input class="form-control" placeholder="Check-out" id="checkout" type="text" data-error="Please pick a checkout date." required style="text-align: center;">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: center; height: 200px;"><br><br>
+                        <div class="row">
+                          <div class="col" style="text-align: center;"><h4>Select your desired dates of stay.</h4><br><p>Unavailable dates are not selectable.</p></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="step-3">
+
+                  <div id="form-step-2" role="form" data-toggle="validator">
+                    <div style="text-align: center; height: 300px;"><br>
+                      <textarea class="form-control" readonly rows="6">
+                        iurehfiurrimcfe]
+                        rewdewdwe
+                        wedwedwedwed
+                        wedwedwedwed
+                        wedwedwedwed
+                        wedweeedwed
+
+                        wedweeedwedd
+                        wedewwdwe
+
+                        wedwedwedwed
+
+                        D4odekUCv5uiceuvR5ZbrMEPdhJ8bhb
+                        hgb
+                        hghbhgbhgb
+
+                        hghbhgbhgb
+
+                        bghbhbghbghg
+                      </textarea><br>
+                      <div class="form-group">
+                          <div class="custom-control custom-checkbox mb-3">
+                            <input class="custom-control-input" type="checkbox" id="terms" data-error="Please accept the Terms and Conditions" required>
+                            <label style="padding-left: 40px;font-size: 120%;" class="custom-control-label" for="terms">I agree with the T&C</label>
+                          </div>
+                          <div class="help-block with-errors"></div>
+                      </div>
+                      </div>
+                  </div>
+
+                </div>
+                <div id="step-4" class="">
+                  <div id="form-step-3" role="form" data-toggle="validator">
+                  <div style="text-align: center; height: 300px;"><br><br>
+                    <div style="background-color:red">
+                        <strong>Warning!</strong> Booking here will not create a reservation!
+                    </div>
+                    <br>
+                    <div id="checkout-info"></div>
+                    <br>
+                    <form
+                      method="POST"
+                      action="https://wt-038f856db796d26df7d9d75052e88e71-0.sandbox.auth0-extend.com/stripe-payment">
+                    <button type="button" class="btn btn-primary" id="StripeButton">Purchase</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </form>
+
+    </div>
+
+    <!-- Include jQuery -->
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- Include jQuery Validator plugin -->
+    <script type="text/javascript" src="../node_modules/bootstrap-validator/dist/validator.min.js"></script>
+
+    <script type="text/javascript" src="../assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Include SmartWizard JavaScript source -->
+    <script type="text/javascript" src="../node_modules/smartwizard/dist/js/jquery.smartWizard.min.js"></script>
+
+    <script type="text/javascript">
+
+        var today = new Date();
+        var checkinDate = moment(today);
+        var checkoutDate = moment(today);
+        var roomBooked = "";
+        var numNights = 0;
+        var total = 0;
+        var paymentDue = 0;
+        var paymentDueStripe = 0;
+        var fee = 0;
+        var setTotal = 0.00;
+        var minNights = 1;
+        var bookedArr = [];
+        var desiredDatesArr = [];
+
+        /**
+        * @description determine if an array contains one or more items from another array.
+        * @param {array} haystack the array to search.
+        * @param {array} arr the array providing items to check for in the haystack.
+        * @return {boolean} true|false if haystack contains at least one item from arr.
+        */
+        var findOne = function (haystack, arr) {
+          return arr.some(function (v) {
+            return haystack.indexOf(v) >= 0;
+          });
+        };
+
+        var enumerateDaysBetweenDates = function(startDate, endDate) {
+          var now = moment(startDate, "MM/DD/YYYY"), dates = [];
+          while (now.isSameOrBefore(moment(endDate, "MM/DD/YYYY"))) {
+              dates.push(now.format("MM/DD/YYYY"));
+              now.add(1, 'days');
+            }
+          return dates;
+        };
+
+
+    function calcTotal()
+      {
+        $("input:checked").each(function()
+        {
+            //This happens for each checked input field
+            var value = $(this).attr("value");
+            total += parseFloat(value);
+        });
+      };
+
+    var getBookedOffice = function() {
+      var url = 'https://spreadsheets.google.com/feeds/list/1LIgR-YYyEXfWdRZ7IAixpBroKAOCx76fHGnG3jfG8lw/od6/public/values?alt=json'
+      $.getJSON(url,function(data){
+        $.each(data.feed.entry,function(key,val){
+            bookedArr.push(val.gsx$office.$t)
+          });
+        $('#checkin').datepicker("setDatesDisabled", bookedArr);
+        $('#checkout').datepicker("setDatesDisabled", bookedArr);
+        console.log(bookedArr);
+      });
+    }
+    var getBookedBar = function() {
+      var url = 'https://spreadsheets.google.com/feeds/list/19hEKyVIqyy-a_fDpz5mtmPsy3CG-d9C_-9JDFI3VXBA/od6/public/values?alt=json'
+      $.getJSON(url,function(data){
+        $.each(data.feed.entry,function(key,val){
+            bookedArr.push(val.gsx$bar.$t)
+          });
+        $('#checkin').datepicker("setDatesDisabled", bookedArr);
+        $('#checkout').datepicker("setDatesDisabled", bookedArr);
+        console.log(bookedArr);
+      });
+    }
+    var getBookedArr = function()
+      {
+        if(document.getElementById("officeCheck").checked && document.getElementById("barCheck").checked){
+          getBookedOffice();
+          getBookedBar();
+        } else {
+        if(document.getElementById("officeCheck").checked){
+          getBookedOffice();
+        } else {
+          if(document.getElementById("barCheck").checked){
+            getBookedBar();
+          };
+        };
+      };
+      };
+
+    //This happens when the page loads
+    calcTotal();
+
+    $("input:checkbox").click(function()
+      {
+        total = 0;
+        calcTotal();
+        $("input.total").val(total);
+      });
+
+        $(document).ready(function(){
+            // Toolbar extra buttons
+            var btnCancel = $('<button></button>').text('RESET')
+                                             .addClass('btn btn-danger')
+                                             .on('click', function(){
+                                                    $('#smartwizard').smartWizard("reset");
+                                                    window.location.reload(true);
+                                                });
+            // Smart Wizard
+            $('#smartwizard').smartWizard({
+                    selected: 0,
+                    theme: 'circles',
+                    transitionEffect:'fade',
+                    toolbarSettings: {toolbarPosition: 'bottom',
+                                      showPreviousButton: false,
+                                      toolbarExtraButtons: [btnCancel]
+                                    },
+                    anchorSettings: {
+                                markDoneStep: true, // add done css
+                                markAllPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
+                                removeDoneStepOnNavigateBack: true, // While navigate back done step after active step will be cleared
+                                enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
+                            }
+                 });
+            $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+                var elmForm = $("#form-step-" + stepNumber);
+                // stepDirection === 'forward' :- this condition allows to do the form validation
+                // only on forward navigation, that makes easy navigation on backwards still do the validation when going next
+                if(stepDirection === 'forward' && elmForm){
+                    elmForm.validator('validate');
+                    var elmErr = elmForm.children('.has-error');
+                    if(elmErr && elmErr.length > 0){
+                        // Form validation failed
+                        return false;
+                    }
+                    if(stepNumber === 0){
+                      if (total > 0) {
+                        setTotal = total.toFixed(2);
+                        getBookedArr();
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    }
+                    if(stepNumber === 1){
+                      if ($('#checkin').datepicker("getDate") !== "" && $('#checkout').datepicker("getDate")) {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    }
+                    if(stepNumber === 2){
+                      if (document.getElementById('terms').checked) {
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    }
+                }
+                return true;
+            });
+            $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection) {
+                // Enable finish button only on last step
+                if(stepNumber == 3){
+                  var a = moment(checkoutDate, "MM/DD/YYYY");
+                  var b = moment(checkinDate, "MM/DD/YYYY");
+                  numNights = a.diff(b, 'days');
+
+                  if (numNights > 20) {
+                  paymentDue = (setTotal * numNights) * .60;
+                    } else
+                  if (numNights > 13) {
+                  paymentDue = (setTotal * numNights) * .70;
+                    } else
+                  if (numNights > 6) {
+                  paymentDue = (setTotal * numNights) * .80;
+                    } else {
+                    paymentDue = setTotal * numNights;
+                  };
+
+                  paymentDue = paymentDue.toFixed(2)
+
+                  paymentDueStripe = paymentDue * 100;
+
+                  fee = paymentDueStripe * .05;
+
+                  if(document.getElementById("officeCheck").checked && document.getElementById("barCheck").checked){
+                    roomBooked = "both";
+                  } else {
+                    if(document.getElementById("officeCheck").checked){
+                      roomBooked = "office";
+                    }
+                    if(document.getElementById("barCheck").checked){
+                      roomBooked = "bar";
+                    }
+                  }
+
+                  document.getElementById("checkout-info").innerHTML = "You will be reserving " + numNights + " nights. From " + checkinDate + " to " + checkoutDate + ". For a total of $" + paymentDue;
+
+                  document.getElementById('roomBooked').value = roomBooked;
+                  document.getElementById('paymentDue').value = paymentDue;
+                  document.getElementById('payDate').value = today;
+                  document.getElementById('numNights').value = numNights;
+                  document.getElementById('checkinDateSet').value = checkinDate;
+                  document.getElementById('checkoutDateSet').value = checkoutDate;
+                  document.getElementById('title').value = "Breezy Book";
+
+                    $('#StripeButton').removeClass('disabled');
+                }else{
+                    $('#StripeButton').addClass('disabled');
+                    if(stepNumber == 2){
+                      checkinDate = moment($('#checkin').datepicker("getDate")).format("MM/DD/YYYY");
+                      checkoutDate = moment($('#checkout').datepicker("getDate")).format("MM/DD/YYYY");
+                    };
+                };
+            });
+
+            $('#checkin').change(function () {
+              checkinDate = moment($('#checkin').datepicker("getDate")).format("MM/DD/YYYY");
+              var checkoutBlock = moment(checkinDate, "MM/DD/YYYY").add(minNights,'days').format("MM/DD/YYYY");
+              $('#checkout').datepicker('setDate', "");
+              $('#checkout').datepicker('show');
+              $('#checkout').datepicker('setStartDate', checkoutBlock);
+            });
+            $('#checkout').change(function () {
+              checkinDate = moment($('#checkin').datepicker("getDate")).format("MM/DD/YYYY");
+              checkoutDate = moment($('#checkout').datepicker("getDate")).format("MM/DD/YYYY");
+              desiredDatesArr = enumerateDaysBetweenDates(checkinDate, checkoutDate);
+              if (findOne(bookedArr, desiredDatesArr)) {
+                $('#checkout').datepicker('setDate', "");
+              };
+            });
+
+        });
+
+
+        var handler = StripeCheckout.configure({
+          key: 'pk_test_UBQcB0xVzqqoX0Gho88atD9B',
+          locale: 'auto',
+          token: function(token) {
+            document.getElementById('email').value = token.email + ",oldsheepranchinn@gmail.com";
+            $("#myForm").submit();
+          }
+        });
+
+        document.getElementById('StripeButton').addEventListener('click', function(e) {
+          // Open Checkout with further options:
+
+          handler.open({
+            name: 'Old Sheep Ranch Inn',
+            description: 'Secure Payment',
+            amount: paymentDueStripe
+          });
+          e.preventDefault();
+        });
+
+        // Close Checkout on page navigation:
+        window.addEventListener('popstate', function() {
+          handler.close();
+        });
+
+          $(function() {
+            $('.datepicker').each(function() {
+                $('.datepicker').datepicker({
+                    disableTouchKeyboard: true,
+                    autoclose: true,
+                    format: "mm/dd/yyyy",
+                    todayBtn: false,
+                    startDate: '+3d',
+                    endDate: '+9m',
+                    container: '#pickers'
+                });
+            });
+          });
+          var sendBookedBoth = function(myData) {
+            var url = 'https://script.google.com/macros/s/AKfycbwohdADXsrYOxls-pATmRZRacBQReujWN711kQw_lz2kt0Nkks/exec'
+            $.ajax({
+                url: url
+                , method: 'POST'
+                , data: myData
+                , success: function (data) {
+                    console.log(data)
+                    sendBookedBar(myData)
+                }
+            })
+          }
+          var sendBookedOffice = function(myData) {
+            var url = 'https://script.google.com/macros/s/AKfycbwohdADXsrYOxls-pATmRZRacBQReujWN711kQw_lz2kt0Nkks/exec'
+            $.ajax({
+                url: url
+                , method: 'POST'
+                , data: myData
+                , success: function (data) {
+                    console.log(data)
+                    window.location.href="ThankYou.html";
+                }
+            })
+          }
+          var sendBookedBar = function(myData) {
+            var url = 'https://script.google.com/macros/s/AKfycby3MDTLREHBOG2e5I4xAxfqT0vVvnH7Vj-TKJUezpUPI8RgPP4/exec'
+            $.ajax({
+                url: url
+                , method: 'POST'
+                , data: myData
+                , success: function (data) {
+                    console.log(data)
+                    window.location.href="ThankYou.html";
+                }
+            })
+          }
+
+          $('#myForm').submit(function (e) {
+              e.preventDefault();
+              var myData = $('form#myForm :input').serialize();
+              if(document.getElementById("officeCheck").checked && document.getElementById("barCheck").checked){
+                sendBookedBoth(myData);
+              } else {
+              if(document.getElementById("officeCheck").checked){
+                sendBookedOffice(myData);
+              };
+              if(document.getElementById("barCheck").checked){
+                sendBookedBar(myData);
+              };
+            };
+          })
+
+    </script>
+</body>
+</html>
